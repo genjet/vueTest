@@ -44,6 +44,10 @@
         <form v-on:submit.prevent="submitForm2">
             <button type="submit">sign up2</button>
         </form>
+        <hr/>
+        <input type="text" v-on:input="setUrgent" v-on:keyup.enter="commitUrgent">
+        <p>current urgent issue:{{urgent}}</p>
+        <p>current urgent checked issue:{{checkedUrgent}}</p>
     </section>
 </body>
 

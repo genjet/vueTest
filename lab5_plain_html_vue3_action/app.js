@@ -2,10 +2,18 @@ const app = Vue.createApp({
     data() {
         return {
             counter1: 30,
-            todo: ''
+            todo: '',
+            urgent: "",
+            checkedUrgent: ''
         }
     },
     methods: {
+        commitUrgent() {
+            this.checkedUrgent = this.urgent;
+        },
+        setUrgent(event) {
+            this.urgent = event.target.value;
+        },
         submitForm() {
             alert('送送送,送出request畫面會閃一下喔');
         },
