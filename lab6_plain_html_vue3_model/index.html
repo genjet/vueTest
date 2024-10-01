@@ -19,6 +19,10 @@
         <input type="text" v-model="issue">
         <p>your input issue is:{{issue}}</p>
         <button @click="resetIssue">Clear this issue</button>
+        <hr/>
+        <p>{{outputIssue()}}</p>
+        <p>counter={{counter}}</p>
+        <button @click="increase">+1</button>
     </section>
 </body>
 
