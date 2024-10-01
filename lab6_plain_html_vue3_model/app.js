@@ -5,9 +5,6 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        setIssue(event) {
-            this.issue = event.target.value;
-        },
         resetIssue() {
             this.issue = ""
         }

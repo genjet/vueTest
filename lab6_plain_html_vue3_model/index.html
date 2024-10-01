@@ -16,9 +16,9 @@
 
 <body>
     <section id="app6">
-        <input type="text" v-on:input="setIssue" v-bind:value="issue">
+        <input type="text" v-model="issue">
         <p>your input issue is:{{issue}}</p>
-        <button v-on:click="resetIssue">Clear this issue</button>
+        <button @click="resetIssue">Clear this issue</button>
     </section>
 </body>
 
