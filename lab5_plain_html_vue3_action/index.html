@@ -30,6 +30,8 @@
         
         <p>Counter Result:{{counter1}}</p>
 
+        <p v-once>使用 v-once 變數顯示初始渲染值 counter init value:{{counter1}}</p>
+
         <hr/>
         <input type="text" v-on:input="setTodo($event, '你說: ')"/>
         <p>your expectation is:     {{todo}}</p>
