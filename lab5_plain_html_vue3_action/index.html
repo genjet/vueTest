@@ -24,8 +24,11 @@
         <hr>
         <button v-on:click="increase(5)">Increaase_參數(5)</button>
         <button v-on:click="decrease(5)">Decrease_參數(5)</button>
+        <hr/>
+        <button v-on:click.right="increase(3)">Increaase by 3</button>
+        <button v-on:click.right="decrease(3)">Decrease by 3</button>
         
-        <p>Counter1 Result:{{counter1}}</p>
+        <p>Counter Result:{{counter1}}</p>
 
         <hr/>
         <input type="text" v-on:input="setTodo($event, '你說: ')"/>
