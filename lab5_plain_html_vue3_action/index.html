@@ -28,7 +28,7 @@
         <p>Counter1 Result:{{counter1}}</p>
 
         <hr/>
-        <input type="text" v-on:input="setTodo"/>
+        <input type="text" v-on:input="setTodo($event, '你說: ')"/>
         <p>your expectation is:     {{todo}}</p>
     </section>
 </body>

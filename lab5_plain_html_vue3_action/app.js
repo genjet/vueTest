@@ -6,8 +6,8 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        setTodo(event) { // assume target是一個input元件 
-            this.todo = event.target.value;
+        setTodo(event, greeting) { // assume target是一個input元件 
+            this.todo = `${greeting}  : ${event.target.value}`;
         },
         increase1() {
             this.counter1++;
