@@ -2,10 +2,20 @@ const app = Vue.createApp({
     data() {
         return {
             counter1: 30,
-            todo:''
+            todo: ''
         }
     },
     methods: {
+        submitForm() {
+            alert('送送送,送出request畫面會閃一下喔');
+        },
+        submitForm1(event) {
+            event.preventDefault()
+            alert('接了 event.preventDefault() 就不送了');
+        },
+        submitForm2(event) {
+            alert(`因為 v-on:submit.prevent 不會送, form submitted as:${event.target}`)
+        },
         setTodo(event, greeting) { // assume target是一個input元件 
             this.todo = `${greeting}  : ${event.target.value}`;
         },

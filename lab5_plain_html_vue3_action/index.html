@@ -30,6 +30,17 @@
         <hr/>
         <input type="text" v-on:input="setTodo($event, '你說: ')"/>
         <p>your expectation is:     {{todo}}</p>
+
+        <hr/>
+        <form v-on:submit="submitForm">
+            <button type="submit">sign up</button>
+        </form>
+        <form v-on:submit="submitForm1">
+            <button type="submit">sign up1</button>
+        </form>
+        <form v-on:submit.prevent="submitForm2">
+            <button type="submit">sign up2</button>
+        </form>
     </section>
 </body>
 
