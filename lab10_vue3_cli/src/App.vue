@@ -2,8 +2,8 @@
   <div>
     <h1>這是主程式</h1>
     <h2>{{ title }}</h2>
-    <course-intro id="poop" name="python oop" duration=35></course-intro>
-    <course-intro id="bdpy" name="python and big data" duration=35></course-intro>
+    <course-intro id="poop" name="python oop" duration=35 current="true"></course-intro>
+    <course-intro id="bdpy" name="python and big data" duration=35 current="false"></course-intro>
   </div>
 </template>
 

@@ -1,7 +1,8 @@
 <template>
   <div>
     <li>
-      <h2>{{ id }}</h2>
+      <h2>{{ id }} - {{ isCurrent }}</h2>
+      <button @click="toggleCurrent">change Current</button>
       <button @click="toggleCourseDetail">show detail</button>
       <ul v-if="detailsVisible">
         <li>{{ name }}</li>
@@ -13,16 +14,21 @@
 
 <script>
 export default {
-  props: ["id", "name", "duration"],
+  props: ["id", "name", "duration", "current"],
   data() {
     return {
       //course: { id: "POOP", name: "Python OOP", duration: "35hr" },
-      detailsVisible: true
+      detailsVisible: true,
+      isCurrent: this.current
+
     }
   },
   methods: {
     toggleCourseDetail() {
       this.detailsVisible = !this.detailsVisible;
+    },
+    toggleCurrent() {
+      this.isCurrent = !this.isCurrent
     }
   }
 }
