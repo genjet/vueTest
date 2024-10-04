@@ -4,6 +4,7 @@
     <h2>{{ title }}</h2>
     <course-intro id="poop" name="python oop" duration=35 current="true"></course-intro>
     <course-intro id="bdpy" name="python and big data" duration=35 current="false"></course-intro>
+    <course-intro id="pykt" name="python and tensorflow" duration="4"></course-intro>
   </div>
 </template>
 
