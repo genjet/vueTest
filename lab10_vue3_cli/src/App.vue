@@ -2,9 +2,13 @@
   <div>
     <h1>這是主程式</h1>
     <h2>{{ title }}</h2>
-    <course-intro id="poop" name="python oop" v-bind:duration=35 :current=true></course-intro>
-    <course-intro id="bdpy" name="python and big data" :duration="35" :current=false></course-intro>
-    <course-intro id="pykt" name="python and tensorflow" :duration=9></course-intro>
+    <course-intro v-for="c in courses" 
+      :key="c.id" 
+      :id="c.id" 
+      :name="c.name" 
+      :duration="c.duration"
+      :current="c.current">
+    </course-intro>
   </div>
 </template>
 
@@ -12,7 +16,12 @@
 export default {
   data() {
     return {
-      title: "First Vue CLI program"
+      title: "First Vue CLI program",
+      courses: [
+        { id: "POOP", name: "Python OOP", duration: 35, current: true },
+        { id: "BDPY", name: "Big Data and Python", duration: 35, current: false },
+        { id: "PYKT", name: "Python Keras and Tensorflow", duration: 35 },
+      ]
     }
   }
 }
