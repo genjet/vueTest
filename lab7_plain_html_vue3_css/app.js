@@ -3,7 +3,7 @@ const app = Vue.createApp({
         return {
             div1Selected: false,
             div2Selected: false,
-            div3Selected: true          
+            div3Selected: false          
         }
     },
     methods: {
