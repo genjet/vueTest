@@ -7,14 +7,20 @@
       :id="c.id" 
       :name="c.name" 
       :duration="c.duration"
-      :current="c.current"
-      @toggle-current="toggleCurrentStatus">
+      :current="c.current">
     </course-intro>
   </div>
 </template>
 
 <script>
 export default {
+  created() {
+    console.log("App創建了")
+    this.emitter.on('toggle-current', idx => {
+      // alert(`${idx} will change status`)
+      this.toggleCurrentStatus(idx)
+    })
+  },
   data() {
     return {
       title: "First Vue CLI program",
@@ -25,8 +31,8 @@ export default {
       ]
     }
   },
-  methods:{
-    toggleCurrentStatus(id){
+  methods: {
+    toggleCurrentStatus(id) {
       //alert(`toggle fired with id=${id}`)
       const course = this.courses.find(c => c.id === id)
       course.current = !course.current

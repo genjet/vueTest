@@ -37,7 +37,8 @@ export default {
     },
     toggleCurrent() {
       // this.isCurrent = !this.isCurrent
-      this.$emit('toggle-current', this.id)
+      // this.$emit('toggle-current', this.id)
+      this.emitter.emit('toggle-current', this.id)
     }
   }
 }
