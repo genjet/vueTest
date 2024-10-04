@@ -1,11 +1,11 @@
 <template>
   <div>
     <li>
-      <h2>{{ course.id }}</h2>
+      <h2>{{ id }}</h2>
       <button @click="toggleCourseDetail">show detail</button>
       <ul v-if="detailsVisible">
-        <li>{{ course.name }}</li>
-        <li>{{ course.duration }}</li>
+        <li>{{ name }}</li>
+        <li>{{ duration }}</li>
       </ul>
     </li>
   </div>
@@ -13,9 +13,10 @@
 
 <script>
 export default {
+  props: ["id", "name", "duration"],
   data() {
     return {
-      course: { id: "POOP", name: "Python OOP", duration: "35hr" },
+      //course: { id: "POOP", name: "Python OOP", duration: "35hr" },
       detailsVisible: true
     }
   },
