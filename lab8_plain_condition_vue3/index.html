@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>條件與迭代</h1>
+    <section id="app8">
+        <input type="text" v-model="courseContent"/>
+        <button @click="addCourses">add a course</button>
+        <button @click="clearCourses">clear course</button>
+        <p v-if="courses.length===0" >no course</p>
+        <ul v-else>
+            <li v-for="c in courses">{{c}}</li>
+        </ul>
+    </section>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js" async defer></script>
+</body>
+
+</html>
