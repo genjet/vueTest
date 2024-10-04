@@ -14,20 +14,12 @@
     <p>元件練習</p>
     <section id="app9">
         <ul>
-            <li>
-                <h2>POOP</h2>
-                <button>show detail</button>
-                <ul>
-                    <li>python object oriented programming</li>
-                    <li>35hr</li>
-                </ul>
-            </li>
-            <li>
-                <h2>BDPY</h2>
-                <button>show detail</button>
-                <ul>
-                    <li>python and big data</li>
-                    <li>35hr</li>
+            <li v-for ="course in courses" :key="course.id">
+                <h2>{{course.id}}</h2>
+                <button @click="toggleCourseDetail">show detail</button>
+                <ul v-if="detailsVisible">
+                    <li>{{course.name}}</li>
+                    <li>{{course.duration}}</li>
                 </ul>
             </li>
         </ul>
