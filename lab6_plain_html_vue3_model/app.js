@@ -3,7 +3,9 @@ const app = Vue.createApp({
         return {
             issue: "",
             counter: 0,
-            formatIssue: ""
+            formatIssue: "",
+            issue2: "hello",
+            issue3: "world"
         }
     },
     methods: {

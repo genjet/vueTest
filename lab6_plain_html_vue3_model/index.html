@@ -18,12 +18,19 @@
     <section id="app6">
         <input type="text" v-model="issue">
         <p>your input issue is:{{issue}}</p>
+        <hr/>
+        <input type="text" value="issue2">
+        <hr/>
+        <input type="text" v-bind:value="issue2">
+        <input type="text" :value="issue3">
+        <hr/>
         <button @click="resetIssue">Clear this issue</button>
         <hr/>
         <p>{{formatIssue}}</p>
         <!-- <p>{{formatIssue_p('IIIIII')}}</p> -->
         <p>counter={{counter}}</p>
         <button @click="increase">+1</button>
+        <button v-on:click="increase">+1</button>
     </section>
 </body>
 
