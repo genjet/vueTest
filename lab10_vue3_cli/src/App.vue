@@ -7,7 +7,8 @@
       :id="c.id" 
       :name="c.name" 
       :duration="c.duration"
-      :current="c.current">
+      :current="c.current"
+      @toggle-current="toggleCurrentStatus">
     </course-intro>
   </div>
 </template>

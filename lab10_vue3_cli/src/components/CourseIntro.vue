@@ -14,6 +14,17 @@
 
 <script>
 export default {
+  //emits:['toggle-current'],
+  emits: {
+    'toggle-current': function (id) {
+      if (id) {
+        return true;
+      } else {
+        console.warn("id is missing")
+        return false;
+      }
+    }
+  },
   // props: ["id", "name", "duration", "current"],
   props: {
     id: { type: String, required: true }, name: { type: String, required: true },
@@ -36,9 +47,10 @@ export default {
       this.detailsVisible = !this.detailsVisible;
     },
     toggleCurrent() {
-      // this.isCurrent = !this.isCurrent
-      // this.$emit('toggle-current', this.id)
-      this.emitter.emit('toggle-current', this.id)
+      //this.isCurrent = !this.isCurrent
+      this.$emit('toggle-current', this.id)
+      //this.$emit('toggle-current')
+      //this.emitter.emit('toggle-current', this.id)
     }
   }
 }
