@@ -18,7 +18,15 @@ const app = Vue.createApp({
         }
     },
     computed: {
-       
+        div1Classes(){
+         return {is1Selected: this.div1Selected}
+        },
+        div2Classes(){
+         return {is2Selected: this.div2Selected}
+        },
+        div3Classes(){
+         return {is3Selected: this.div3Selected}
+        }
     },
     watch: {
        
