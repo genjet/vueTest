@@ -18,10 +18,10 @@ export default {
   props: {
     id: { type: String, required: true }, name: { type: String, required: true },
     duration: {
-      type: String, required: true, validator: function (v) {
-        return parseInt(v) > 7;
+      type: Number, required: true, validator: function (v) {
+        return v > 7;
       }
-    }, current: { type: String, required: false, default: "false" }
+    }, current: { type: Boolean, required: false, default: false }
   },
   data() {
     return {
