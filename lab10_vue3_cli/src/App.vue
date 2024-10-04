@@ -7,7 +7,8 @@
       :id="c.id" 
       :name="c.name" 
       :duration="c.duration"
-      :current="c.current">
+      :current="c.current"
+      @toggle-current="toggleCurrentStatus">
     </course-intro>
   </div>
 </template>
@@ -22,6 +23,14 @@ export default {
         { id: "BDPY", name: "Big Data and Python", duration: 35, current: false },
         { id: "PYKT", name: "Python Keras and Tensorflow", duration: 35 },
       ]
+    }
+  },
+  methods:{
+    toggleCurrentStatus(id){
+      //alert(`toggle fired with id=${id}`)
+      const course = this.courses.find(c => c.id === id)
+      course.current = !course.current
+      console.log(`反相${id}目前狀態是${course.current}`)
     }
   }
 }
