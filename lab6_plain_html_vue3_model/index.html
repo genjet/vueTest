@@ -20,7 +20,8 @@
         <p>your input issue is:{{issue}}</p>
         <button @click="resetIssue">Clear this issue</button>
         <hr/>
-        <p>{{outputIssue()}}</p>
+        <p>{{formatIssue}}</p>
+        <p>{{formatIssue_p('IIIIII')}}</p>
         <p>counter={{counter}}</p>
         <button @click="increase">+1</button>
     </section>
