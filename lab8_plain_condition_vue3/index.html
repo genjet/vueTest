@@ -13,12 +13,22 @@
 <body>
     <h1>條件與迭代</h1>
     <section id="app8">
-        <input type="text" v-model="courseContent"/>
+        <input type="text" v-model="courseContent" />
         <button @click="addCourses">add a course</button>
         <button @click="clearCourses">clear course</button>
-        <p v-if="courses.length===0" >no course</p>
-        <ul v-else>
-            <li v-for="c in courses">{{c}}</li>
+        <p v-show="courses.length===0">no course</p>
+        <ul v-show="courses.length>0">
+            <li v-for="(c,index) in courses" :key="c" @click="removeCourse(index)">
+                [{{index}}]{{c}}<input type="text" @click.stop />
+            </li>
+        </ul>
+        <hr />
+        <ul>
+            <li v-for="v in {name:'POOP',duration:35, instructor:'Mark Ho'}">{{v}}</li>
+        </ul>
+        <hr />
+        <ul>
+            <li v-for="(v,k) in {name:'POOP',duration:35, instructor:'Mark Ho'}">key={{k}},value={{v}}</li>
         </ul>
     </section>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

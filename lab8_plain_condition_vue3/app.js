@@ -9,9 +9,12 @@ const app = Vue.createApp({
         clearCourses() {
             this.courses.length = 0
         },
-        addCourses(){
+        addCourses() {
             this.courses.push(this.courseContent);
             this.courseContent = "";
+        },
+        removeCourse(index) {
+            this.courses.splice(index, 1)
         }
     },
     computed: {
