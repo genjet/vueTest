@@ -2,8 +2,8 @@
   <h1>composition函數</h1>
   <course-intro
   :courseId="courseId"
-  :courseFullName="courseFullNameInput"
-  :price="price"></course-intro>
+  :courseFullName="courseFullNameInput">
+  </course-intro>
   <h3>{{ courseDisplayFullName }}</h3>
   <button @click="course.duration+=7">時數加1天(bad)</button>
   <button @click="extraDuration">時數加1天</button>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { ref,reactive,computed,watch } from 'vue'
+import { ref,reactive,computed,watch, provide  } from 'vue'
 import CourseIntro from './components/CourseIntro.vue';
 export default {
   components:{CourseIntro},
@@ -33,6 +33,7 @@ export default {
       return `[${courseId.value}]${courseFullName.value}`
     })
     const price = ref(24000)
+    provide("price",price)
     // moniter value changes
     watch([price,courseDisplayFullName],function(newValue,oldValue){
       if (oldValue[0]!==newValue[0]) {
