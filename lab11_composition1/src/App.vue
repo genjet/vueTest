@@ -8,19 +8,27 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { ref, reactive, isReactive, isRef } from 'vue'
 export default {
   name: 'App',
   setup() {
-    const initUser = {userName:'Mark Ho', 
-      age:48
+    const currentAge = ref(43)
+    const initUser = {
+      userName: 'Mark Ho',
+      age: 48
     }
     const user = reactive(initUser)
+    console.log(currentAge, user)
+    console.log(currentAge.value, user.age, user.userName)
+    console.log(`currentAge is a reactive variable? ${isReactive(currentAge)}`)
+    console.log(`currentAge is a ref variable? ${isRef(currentAge)}`)
+    console.log(`user is a ref variable?${isRef(user)}, is a reactive variable?${isReactive(user)}`)
+
     setTimeout(function () {
       user.userName = "Meng-Hang Ho"
       user.age += 1
     }, 2000)
-    return { user:user,userName:user.userName,age:user.age }
+    return { user: user, userName: user.userName, age: user.age }
   }
 }
 </script>
