@@ -7,6 +7,9 @@
   <hr/>
   <input type="text" v-model="courseId"/>
   <input type="text" v-model="courseFullName"/>
+  <hr/>
+  <input type="text" ref="courseFullNameInput"/>
+  <button @click="setCourseFullName">set course full name</button>
 </template>
 
 <script>
@@ -14,8 +17,12 @@ import { ref,reactive,computed,watch } from 'vue'
 export default {
   name: 'App',
   setup() {
-    const courseId = ref("bdpy")
-    const courseFullName = ref("python and big data")
+    const courseId = ref("")
+    const courseFullName = ref("")
+    const courseFullNameInput = ref()
+    function setCourseFullName() {
+      courseFullName.value = courseFullNameInput.value.value
+    }
     const courseDisplayFullName = computed(function(){
       console.log("calculate full name")
       return `[${courseId.value}]${courseFullName.value}`
@@ -40,7 +47,9 @@ export default {
 
     return {course:course, extraDuration:extraDuration,price:price,
       courseDisplayFullName:courseDisplayFullName,courseId:courseId,
-      courseFullName:courseFullName
+      courseFullName:courseFullName,
+      courseFullNameInput:courseFullNameInput,
+      setCourseFullName:setCourseFullName
     }
   }
 }
