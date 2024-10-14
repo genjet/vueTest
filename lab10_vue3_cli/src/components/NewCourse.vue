@@ -30,7 +30,10 @@ export default {
   },
   methods: {
       submitData() {
-          this.$emit("add-course", this.inputId, this.inputName, this.inputDuration)
+          this.$emit("add-course", this.inputId, this.inputName, this.inputDuration);
+          this.inputId = "";
+          this.inputName= "";
+          this.inputDuration= "";
       }
   }
 

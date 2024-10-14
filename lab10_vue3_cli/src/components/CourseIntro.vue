@@ -4,6 +4,7 @@
       <h2>{{ id }} - {{ current }}</h2>
       <button @click="toggleCurrent">change Current</button>
       <button @click="toggleCourseDetail">show detail</button>
+      <button @click="deleteCourse">Delete</button>
       <ul v-if="detailsVisible">
         <li>{{ name }}</li>
         <li>{{ duration }}</li>
@@ -17,6 +18,14 @@ export default {
   //emits:['toggle-current'],
   emits: {
     'toggle-current': function (id) {
+      if (id) {
+        return true;
+      } else {
+        console.warn("id is missing")
+        return false;
+      }
+    },
+    'delete-current': function (id) {
       if (id) {
         return true;
       } else {
@@ -51,6 +60,9 @@ export default {
       this.$emit('toggle-current', this.id)
       //this.$emit('toggle-current')
       //this.emitter.emit('toggle-current', this.id)
+    },
+    deleteCourse() {
+      this.$emit('delete-current', this.id)
     }
   }
 }

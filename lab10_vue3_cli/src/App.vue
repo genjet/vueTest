@@ -4,7 +4,7 @@
     <h2>{{ title }}</h2>
     <new-course @add-course="toggleAddCourse"></new-course>
     <course-intro v-for="c in courses" :key="c.id" :id="c.id" :name="c.name" :duration="c.duration" :current="c.current"
-      @toggle-current="toggleCurrentStatus">
+      @toggle-current="toggleCurrentStatus" @delete-current="deleteCourse">
     </course-intro>
   </div>
 </template>
@@ -41,6 +41,9 @@ export default {
       // const newCourseContent = { id: id, name: name, duration: duration, current: false };
       const newCourseContent = { id, name, duration, current: false };
       this.courses.push(newCourseContent);
+    },
+    deleteCourse(id){
+      this.courses = this.courses.filter(course=>course.id !== id)
     }
   }
 }
