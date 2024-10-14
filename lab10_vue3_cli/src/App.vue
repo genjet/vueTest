@@ -2,12 +2,8 @@
   <div>
     <h1>這是主程式</h1>
     <h2>{{ title }}</h2>
-    <course-intro v-for="c in courses" 
-      :key="c.id" 
-      :id="c.id" 
-      :name="c.name" 
-      :duration="c.duration"
-      :current="c.current"
+    <new-course @add-course="toggleAddCourse"></new-course>
+    <course-intro v-for="c in courses" :key="c.id" :id="c.id" :name="c.name" :duration="c.duration" :current="c.current"
       @toggle-current="toggleCurrentStatus">
     </course-intro>
   </div>
@@ -25,11 +21,12 @@ export default {
   data() {
     return {
       title: "First Vue CLI program",
-      courses: [
-        { id: "POOP", name: "Python OOP", duration: 35, current: true },
-        { id: "BDPY", name: "Big Data and Python", duration: 35, current: false },
-        { id: "PYKT", name: "Python Keras and Tensorflow", duration: 35 },
-      ]
+      courses: []
+      // courses: [
+      //   { id: "POOP", name: "Python OOP", duration: 35, current: true },
+      //   { id: "BDPY", name: "Big Data and Python", duration: 35, current: false },
+      //   { id: "PYKT", name: "Python Keras and Tensorflow", duration: 35 },
+      // ]
     }
   },
   methods: {
@@ -38,6 +35,12 @@ export default {
       const course = this.courses.find(c => c.id === id)
       course.current = !course.current
       console.log(`反相${id}目前狀態是${course.current}`)
+    },
+    toggleAddCourse(id, name, duration) {
+      //alert(`pass in a id=${id},name=${name},duration=${duration}`)
+      // const newCourseContent = { id: id, name: name, duration: duration, current: false };
+      const newCourseContent = { id, name, duration, current: false };
+      this.courses.push(newCourseContent);
     }
   }
 }
@@ -50,7 +53,8 @@ export default {
   list-style: none;
 }
 
-#app li {
+#app li,
+#app form {
   box-shadow: 0 4px 8px rgba(0, 0, 128, 0.26);
   margin: 1rem auto;
   border-radius: 5px;
