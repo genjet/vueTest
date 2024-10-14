@@ -1,42 +1,36 @@
 <template>
   <h1>composition函數</h1>
   <h2>{{ course }}/{{ price }}</h2>
-  <h3>{{ courseDisplayFullName() }}</h3>
-  <button @click="course.duration+=7">時數加1天(bad)</button>
+  <h3>{{ courseDisplayFullName }}</h3>
+  <button @click="course.duration += 7">時數加1天(bad)</button>
   <button @click="extraDuration">時數加1天</button>
-  <hr/>
-  <input type="text" placeholder="courseId" @input="setCourseId" :value="courseId"/>
-  <input type="text" placeholder="courseFullName" @input="setCourseFullName" :value="courseFullName"/>
+  <hr />
+  <input type="text" placeholder="courseId" v-model="courseId" />
+  <input type="text" placeholder="courseFullName" v-model="courseFullName" />
 </template>
 
 <script>
-import { ref,reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 export default {
   name: 'App',
   setup() {
-    const courseId = ref("bdpy")
-    const courseFullName = ref("python and big data")
-    const courseDisplayFullName = function(){
+    const courseId = ref("")
+    const courseFullName = ref("")
+    const courseDisplayFullName = computed(function () {
       console.log("calculate full name")
       return `[${courseId.value}]${courseFullName.value}`
-    }
+    })
     const price = ref(24000)
     const course = reactive({ name: "POOP", duration: 35 })
-    function extraDuration(){
+    function extraDuration() {
       course.duration += 7
       price.value += 5000
     }
-    function setCourseId(event){
-      courseId.value = event.target.value
-    }
-    function setCourseFullName(event) {
-      courseFullName.value = event.target.value
-    }
-
-    return {course:course, extraDuration:extraDuration,price:price,
-      courseDisplayFullName:courseDisplayFullName,setCourseId:setCourseId,
-      setCourseFullName:setCourseFullName,courseId:courseId,
-      courseFullName:courseFullName
+    
+    return {
+      course: course, extraDuration: extraDuration, price: price,
+      courseDisplayFullName: courseDisplayFullName, courseId: courseId,
+      courseFullName: courseFullName
     }
   }
 }
