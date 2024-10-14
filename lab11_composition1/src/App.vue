@@ -7,25 +7,24 @@
   </section>
 </template>
 
-
 <script>
-import { ref } from 'vue'
+import { reactive } from 'vue'
 export default {
   name: 'App',
   setup() {
-    const initUser = {
-      userName: 'Mark Ho',
-      age: 48
+    const initUser = {userName:'Mark Ho', 
+      age:48
     }
-    const user = ref(initUser)
+    const user = reactive(initUser)
     setTimeout(function () {
-      user.value.userName = "Meng-Hang Ho"
-      user.value.age = 49
+      user.userName = "Meng-Hang Ho"
+      user.age += 1
     }, 2000)
-    return { user: user, userName: user.value.userName, age: user.value.age }
+    return { user:user,userName:user.userName,age:user.age }
   }
 }
 </script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
