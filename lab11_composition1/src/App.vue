@@ -1,20 +1,28 @@
 <template>
   <section>
-    <h3>{{ userName }}</h3>
+    <h3>full user object:{{ user }}</h3>
+    <h3>get name by user:{{ user.userName }}</h3>
+    <h3>get age by user:{{ user.age }}</h3>
+    <h3>user={{ userName }},age={{ age }}</h3>
   </section>
 </template>
 
+
 <script>
-import {ref} from 'vue'
+import { ref } from 'vue'
 export default {
   name: 'App',
   setup() {
-    console.log("init composition API")
-    const initName = "MarkHo"
-    const currentName = ref(initName)
-    console.log(initName)
-    console.log(currentName)
-    return {userName:currentName}
+    const initUser = {
+      userName: 'Mark Ho',
+      age: 48
+    }
+    const user = ref(initUser)
+    setTimeout(function () {
+      user.value.userName = "Meng-Hang Ho"
+      user.value.age = 49
+    }, 2000)
+    return { user: user, userName: user.value.userName, age: user.value.age }
   }
 }
 </script>
