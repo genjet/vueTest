@@ -5,10 +5,31 @@
 </template>
 
 <script>
-import { computed, inject } from "vue";
+import {
+    computed, inject, onBeforeMount, onMounted,
+    onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted
+} from "vue";
 export default {
     props: ["courseId", "courseFullName"],
     setup(props) {
+        onBeforeMount(() => {
+            console.log("before mount")
+        });
+        onMounted(() => {
+            console.log("after mount")
+        });
+        onBeforeUpdate(() => {
+            console.log("before update")
+        })
+        onUpdated(() => {
+            console.log("after update")
+        })
+        onBeforeUnmount(()=>{
+            console.log("before unmount")
+        })
+        onUnmounted(()=>{
+            console.log("after unmount")
+        })
         const course = computed(
             function () {
                 if (!props.courseFullName) {
