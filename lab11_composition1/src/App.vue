@@ -55,8 +55,8 @@ export default {
       }, 1000)
     }, 2000)
     // return {
-    //   user: user, userName: user.userName, age: user.age, courseName: course.courseName,
-    //   duration: course.duration
+    //   user: user, userName: user.userName, age: user.age, courseName: courseRef.courseName,
+    //   duration: courseRef.duration
     // }
     return {
       user: user, userName: user.userName, age: user.age, ...toRefs(course)
