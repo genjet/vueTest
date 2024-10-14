@@ -1,6 +1,9 @@
 <template>
   <h1>composition函數</h1>
-  <h2>{{ course }}/{{ price }}</h2>
+  <course-intro
+  :courseId="courseId"
+  :courseFullName="courseFullNameInput"
+  :price="price"></course-intro>
   <h3>{{ courseDisplayFullName }}</h3>
   <button @click="course.duration+=7">時數加1天(bad)</button>
   <button @click="extraDuration">時數加1天</button>
@@ -14,7 +17,9 @@
 
 <script>
 import { ref,reactive,computed,watch } from 'vue'
+import CourseIntro from './components/CourseIntro.vue';
 export default {
+  components:{CourseIntro},
   name: 'App',
   setup() {
     const courseId = ref("")
