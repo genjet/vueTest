@@ -1,0 +1,25 @@
+@BASE_URL = https://vuetest202410-default-rtdb.firebaseio.com
+
+POST {{BASE_URL}}/test1.json
+Content-Type: application/json
+
+{
+    "id":"POOP",
+    "name":"Python OOP",
+    "duration":35
+}
+
+
+### 其它的如下:
+POST {{BASE_URL}}/test2.json
+Content-Type: application/json
+
+["React","Angular","VUE"]
+
+
+
+### 其它的如下:
+PUT {{BASE_URL}}/test3.json
+Content-Type: application/json
+
+["台新","國泰","中信"]
